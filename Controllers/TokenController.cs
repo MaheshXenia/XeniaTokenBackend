@@ -1,0 +1,256 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using XeniaCatalogueApi.Service.Common;
+using XeniaTokenApi.Repositories.Token;
+
+namespace XeniaTokenApi.Controllers
+{
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TokenController : ControllerBase
+    {
+        private readonly ITokenRepository _tokenRepository;
+        private readonly JwtHelperService _jwtHelperService;
+
+        public TokenController(ITokenRepository tokenRepository, JwtHelperService jwtHelperService)
+        {
+            _tokenRepository = tokenRepository;
+            _jwtHelperService = jwtHelperService;
+        }
+
+
+        [HttpPost("updateCustomTokenStatus")]
+        public async Task<IActionResult> GetNextCustomTokenForCounter([FromBody] TokenRequestDto tokenData)
+        {
+            try
+            {
+                var result = await _tokenRepository.GetAndUpdateCustomToken(tokenData);
+                return Ok(new { success = true, message = result });
+            }
+            catch
+            {
+                return StatusCode(500, new { success = false, message = "Internal server error occurred while retrieving and updating counter token." });
+            }
+        }
+
+        [HttpGet("onHold")]
+        public async Task<IActionResult> GetTokensOnHold()
+        {
+            try
+            {
+                var companyId = _jwtHelperService.GetCompanyId(User);
+                var userId = _jwtHelperService.GetUserId(User);
+
+                if (companyId == null || userId == null)
+                    return Unauthorized(new { status = "failed", error = "Invalid token claims" });
+
+                var tokens = await _tokenRepository.GetTokensOnHold(companyId.Value, userId.Value);
+                return Ok(new { status = "success", tokensOnHold = tokens });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { status = "failed", error = ex.Message });
+            }
+        }
+
+
+        [HttpGet("onPending/{companyId}/{userId}")]
+        public async Task<IActionResult> GetTokensOnPending(int companyId, int userId)
+        {
+            try
+            {
+                var tokens = await _tokenRepository.GetTokensOnPending(companyId, userId);
+                return Ok(new { status = "success", tokensOnPending = tokens });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { status = "failed", error = ex.Message });
+            }
+        }
+
+        [HttpGet("onCompleted/{companyId}/{userId}")]
+        public async Task<IActionResult> GetTokensOnCompleted(int companyId, int userId)
+        {
+            var tokens = await _tokenRepository.GetTokensByStatus(companyId, userId, "completed");
+            return Ok(new { status = "success", tokensOnCompleted = tokens });
+        }
+
+        [HttpGet("tokenValue/{companyId}/{depId}")]
+        public async Task<IActionResult> GetTokenValues(int companyId, int depId)
+        {
+            try
+            {
+                var tokenValues = await _tokenRepository.GetTokenValuesAsync(companyId, depId);
+                return Ok(new { status = "success", tokenValues });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { status = "failed", error = ex.Message });
+            }
+        }
+
+        [HttpPost("updateTokenStatus")]
+        public async Task<IActionResult> UpdateToken([FromBody] TokenUpdateRequest request)
+        {
+            var result = await _tokenRepository.GetAndUpdateCounterTokenAsync(request);
+
+            if (result.OnCallToken == null)
+                return NotFound(new { success = false, message = "No pending token found." });
+
+            return Ok(new { success = true, result.UpdatedCurrentToken, result.OnCallToken });
+        }
+
+        [HttpPost("tokenStatusUpdate/{companyId}/{depId}/{depPrefix}/{tokenValue?}")]
+        public async Task<IActionResult> UpdateTokenStatus(int companyId,int depId,string depPrefix,int tokenValue,[FromBody] UpdateTokenStatusRequest request)
+        {
+            var result = await _tokenRepository.UpdateTokenStatusAsync(
+                companyId, depId, depPrefix, tokenValue,
+                request.UserId, request.ServiceId, request.CustomerId, request.CounterId);
+
+            if (result.Success)
+                return Ok(new { success = true, message = result.Message });
+
+            return NotFound(new { success = false, message = result.Message });
+        }
+
+        [HttpGet("pendingToken/{companyId}/{userId}")]
+        public async Task<IActionResult> GetPendingTokenValues(int companyId, int userId)
+        {
+            var pendingToken = await _tokenRepository.GetPendingTokenAsync(companyId, userId);
+
+            return Ok(new
+            {
+                status = "success",
+                PendingToken = pendingToken
+            });
+        }
+
+        [HttpGet("checkToken/{companyId}/{depId}/{tokenValue}")]
+        public async Task<IActionResult> CheckTokenValues(int companyId, int depId, int tokenValue)
+        {
+            try
+            {
+                var tokens = await _tokenRepository.CheckTokenValueAsync(companyId, depId, tokenValue);
+
+                if (tokens != null && tokens.Any())
+                {
+                    return Ok(new { status = "success", PendingToken = tokens });
+                }
+                else
+                {
+                    return Ok(new { status = "success", PendingToken = 0 });
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new { status = "failed", error = ex.Message });
+            }
+        }
+
+        [HttpGet("report/tokenDetail/{companyId}")]
+        public async Task<IActionResult> GetTokenHistoryReport(int companyId,[FromQuery] DateTime startDate,[FromQuery] DateTime endDate,[FromQuery] int pageNumber = 1,[FromQuery] int pageSize = 10,[FromQuery] string searchParam = "")
+        {
+            if (startDate == default || endDate == default)
+                return BadRequest(new { status = "failed", message = "Start date and end date are required." });
+
+            var result = await _tokenRepository.GetTokenHistoryReportAsync(companyId, startDate, endDate, pageNumber, pageSize, searchParam);
+
+            return Ok(new { status = "success", tokenDetails = result });
+        }
+
+        [HttpGet("timeline/{companyId}/{depId}/{depPrefix}/{tokenValue}")]
+        public async Task<IActionResult> GetTokenTimeline(int companyId, int depId, string depPrefix, int tokenValue)
+        {
+            var data = await _tokenRepository.GetTokenTimelineAsync(companyId, depId, depPrefix, tokenValue);
+
+            if (!data.Any())
+                return Ok(new { status = "success", message = "No timeline data found", data });
+
+            return Ok(new
+            {
+                status = "success",
+                message = "Token timeline retrieved successfully",
+                data
+            });
+        }
+
+        [HttpPut("resetToken/{companyId}/{depId}")]
+        public async Task<IActionResult> ResetToken(int companyId, int depId)
+        {
+            try
+            {
+                var message = await _tokenRepository.ResetTokenAsync(companyId, depId);
+                return Ok(new { status = "success", message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { status = "failed", error = ex.Message });
+            }
+        }
+
+        [HttpPut("IsAnnounced/{companyId}/{depId}/{tokenValue}")]
+        public async Task<IActionResult> UpdateIsAnnounced(int companyId, int depId, int tokenValue)
+        {
+            var result = await _tokenRepository.UpdateIsAnnouncedAsync(companyId, depId, tokenValue);
+
+            if (!result)
+                return NotFound(new { status = "failed", message = "Token not found" });
+
+            return Ok(new { status = "success", message = "IsAnnounced updated successfully" });
+        }
+
+        [HttpPut("updateDepartment/{companyId}/{depId}/{depPrefix}/{tokenValue}")]
+        public async Task<IActionResult> UpdateDepartment(int companyId, int depId, string depPrefix, int tokenValue, [FromBody] TokenUpdateDto tokenData)
+        {
+            var result = await _tokenRepository.UpdateDepartmentAsync(companyId, depId, depPrefix, tokenValue, tokenData);
+
+            if (!result.Success)
+                return BadRequest(new { status = "failed", message = result.Message });
+
+            return Ok(new { status = "success", message = result.Message });
+        }
+
+        [HttpGet("onHold/{companyId}/{userId}")]
+        public async Task<IActionResult> GetTokensOnHold(int companyId, int userId)
+        {
+            try
+            {
+                var tokensOnHold = await _tokenRepository.GetTokensOnHoldAsync(companyId, userId);
+
+                return Ok(new
+                {
+                    status = "success",
+                    tokensOnHold
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    status = "failed",
+                    error = ex.Message
+                });
+            }
+        }
+
+        [HttpPut("recall")]
+        public async Task<IActionResult> RecallToken([FromBody] TokenRecallDto tokenData)
+        {
+            if (tokenData == null)
+                return BadRequest(new { message = "Invalid request data." });
+
+            try
+            {
+                var result = await _tokenRepository.RecallTokenAsync(tokenData);
+                return Ok(new { message = result });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error recalling token", error = ex.Message });
+            }
+        }
+    }
+
+
+}
