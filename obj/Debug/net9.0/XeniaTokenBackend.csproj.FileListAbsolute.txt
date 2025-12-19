@@ -78,7 +78,6 @@ D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\rjimswa.d
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\scopedcss\bundle\XeniaTokenBackend.styles.css
-D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\compressed\cy9iwdqz0b-b9alfo3vci.gz
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\compressed\07cc9c2fpw-a06idoxm8b.gz
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\staticwebassets.build.json
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\staticwebassets.build.json.cache
@@ -91,3 +90,4 @@ D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\refint\Xe
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\XeniaTokenBackend.pdb
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\XeniaTokenBackend.genruntimeconfig.cache
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\ref\XeniaTokenBackend.dll
+D:\XENIA\GITHUB\WEBAPI\ASP.NET\CORE\XeniaTokenBackend\obj\Debug\net9.0\compressed\cy9iwdqz0b-i4ijwqvjav.gz
