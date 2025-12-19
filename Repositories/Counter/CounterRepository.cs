@@ -1,10 +1,10 @@
 ﻿
 
 using Microsoft.EntityFrameworkCore;
-using XeniaTokenApi.Models;
+using XeniaTokenBackend.Models;
 
 
-namespace XeniaTokenApi.Repositories.Counter
+namespace XeniaTokenBackend.Repositories.Counter
 {
     public class CounterRepository : ICounterRepository
     {

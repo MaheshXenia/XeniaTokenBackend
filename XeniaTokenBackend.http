@@ -1,0 +1,6 @@
+@XeniaTokenBackend_HostAddress = http://localhost:5194
+
+GET {{XeniaTokenBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

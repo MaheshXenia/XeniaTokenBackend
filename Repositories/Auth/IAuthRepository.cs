@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace XeniaTokenApi.Repositories.Auth
+namespace XeniaTokenBackend.Repositories.Auth
 {
     public interface IAuthRepository
     {

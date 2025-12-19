@@ -1,4 +1,4 @@
-﻿namespace XeniaTokenApi.Models
+﻿namespace XeniaTokenBackend.Models
 {
     public class CounterDto
     {

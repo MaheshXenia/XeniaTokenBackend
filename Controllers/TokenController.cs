@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using XeniaCatalogueApi.Service.Common;
-using XeniaTokenApi.Repositories.Token;
+using XeniaTokenBackend.Repositories.Token;
 
-namespace XeniaTokenApi.Controllers
+namespace XeniaTokenBackend.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]

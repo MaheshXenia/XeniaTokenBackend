@@ -1,4 +1,4 @@
-﻿namespace XeniaTokenApi.Repositories.Auth
+﻿namespace XeniaTokenBackend.Repositories.Auth
 {
     public class LoginRequestDto
     {

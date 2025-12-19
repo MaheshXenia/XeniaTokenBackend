@@ -2,7 +2,7 @@
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using XeniaTokenApi.Models; 
+using XeniaTokenBackend.Models; 
 
 namespace XeniaCatalogueApi.Service.Common
 {

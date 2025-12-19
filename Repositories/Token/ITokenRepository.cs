@@ -1,8 +1,8 @@
 ﻿
 
-using XeniaTokenApi.Models;
+using XeniaTokenBackend.Models;
 
-namespace XeniaTokenApi.Repositories.Token
+namespace XeniaTokenBackend.Repositories.Token
 {
     public interface ITokenRepository
     {

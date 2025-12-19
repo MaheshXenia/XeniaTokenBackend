@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using XeniaTokenApi.Models;
-using XeniaTokenApi.Repositories.Department;
+using XeniaTokenBackend.Models;
+using XeniaTokenBackend.Repositories.Department;
 
-namespace XeniaTokenApi.Repositories.Service
+namespace XeniaTokenBackend.Repositories.Service
 {
     public class ServiceRepository : IServiceRepository
     {

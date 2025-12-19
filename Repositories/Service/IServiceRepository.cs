@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace XeniaTokenApi.Repositories.Service
+namespace XeniaTokenBackend.Repositories.Service
 {
     public interface IServiceRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace XeniaTokenApi.Repositories.Token
+﻿namespace XeniaTokenBackend.Repositories.Token
 {
     public class TokenCheckResult
     {

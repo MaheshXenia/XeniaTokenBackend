@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using XeniaCatalogueApi.Service.Common;
-using XeniaTokenApi.Models;
+using XeniaTokenBackend.Models;
 
-namespace XeniaTokenApi.Repositories.Auth
+namespace XeniaTokenBackend.Repositories.Auth
 {
     public class AuthRepository : IAuthRepository
     {

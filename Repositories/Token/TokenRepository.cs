@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using XeniaTokenApi.Models;
+using XeniaTokenBackend.Models;
 
-namespace XeniaTokenApi.Repositories.Token
+namespace XeniaTokenBackend.Repositories.Token
 {
     public class TokenRepository : ITokenRepository
     {

@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using XeniaTokenApi.Repositories.Counter;
+using XeniaTokenBackend.Repositories.Counter;
 
 
-namespace XeniaTokenApi.Controllers
+namespace XeniaTokenBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

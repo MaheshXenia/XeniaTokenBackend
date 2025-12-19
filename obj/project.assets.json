@@ -3185,11 +3185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Xenia\\Documents\\XeniaTokenApi\\XeniaTokenApi.csproj",
-      "projectName": "XeniaTokenApi",
-      "projectPath": "C:\\Users\\Xenia\\Documents\\XeniaTokenApi\\XeniaTokenApi.csproj",
+      "projectUniqueName": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\CORE\\XeniaTokenBackend\\XeniaTokenBackend.csproj",
+      "projectName": "XeniaTokenBackend",
+      "projectPath": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\CORE\\XeniaTokenBackend\\XeniaTokenBackend.csproj",
       "packagesPath": "C:\\Users\\Xenia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Xenia\\Documents\\XeniaTokenApi\\obj\\",
+      "outputPath": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\CORE\\XeniaTokenBackend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

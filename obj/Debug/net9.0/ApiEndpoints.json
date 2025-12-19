@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "XeniaTokenApi.Controllers.AuthController",
+    "ContainingType": "XeniaTokenBackend.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
@@ -9,14 +9,14 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "XeniaTokenApi.Repositories.Auth.LoginRequestDto",
+        "Type": "XeniaTokenBackend.Repositories.Auth.LoginRequestDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.AuthController",
+    "ContainingType": "XeniaTokenBackend.Controllers.AuthController",
     "Method": "GetUsersByToken",
     "RelativePath": "api/Auth/user",
     "HttpMethod": "GET",
@@ -26,7 +26,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.CounterController",
+    "ContainingType": "XeniaTokenBackend.Controllers.CounterController",
     "Method": "GetDepCounters",
     "RelativePath": "api/Counter/dep/{depId}",
     "HttpMethod": "GET",
@@ -42,7 +42,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.DepartmentController",
+    "ContainingType": "XeniaTokenBackend.Controllers.DepartmentController",
     "Method": "GetDepartmentWebById",
     "RelativePath": "api/Department/web/{userId}",
     "HttpMethod": "GET",
@@ -58,7 +58,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.DepartmentController",
+    "ContainingType": "XeniaTokenBackend.Controllers.DepartmentController",
     "Method": "GetDepartmentWebAll",
     "RelativePath": "api/Department/web/all/{companyId}",
     "HttpMethod": "GET",
@@ -74,7 +74,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.ServiceController",
+    "ContainingType": "XeniaTokenBackend.Controllers.ServiceController",
     "Method": "GetAllService",
     "RelativePath": "api/Service/{companyId}",
     "HttpMethod": "GET",
@@ -90,7 +90,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "CheckTokenValues",
     "RelativePath": "api/Token/checkToken/{companyId}/{depId}/{tokenValue}",
     "HttpMethod": "GET",
@@ -116,7 +116,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "UpdateIsAnnounced",
     "RelativePath": "api/Token/IsAnnounced/{companyId}/{depId}/{tokenValue}",
     "HttpMethod": "PUT",
@@ -142,7 +142,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "GetTokensOnCompleted",
     "RelativePath": "api/Token/onCompleted/{companyId}/{userId}",
     "HttpMethod": "GET",
@@ -163,7 +163,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "GetTokensOnHold",
     "RelativePath": "api/Token/onHold",
     "HttpMethod": "GET",
@@ -173,7 +173,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "GetTokensOnHold",
     "RelativePath": "api/Token/onHold/{companyId}/{userId}",
     "HttpMethod": "GET",
@@ -194,7 +194,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "GetTokensOnPending",
     "RelativePath": "api/Token/onPending/{companyId}/{userId}",
     "HttpMethod": "GET",
@@ -215,7 +215,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "GetPendingTokenValues",
     "RelativePath": "api/Token/pendingToken/{companyId}/{userId}",
     "HttpMethod": "GET",
@@ -236,7 +236,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "RecallToken",
     "RelativePath": "api/Token/recall",
     "HttpMethod": "PUT",
@@ -245,14 +245,14 @@
     "Parameters": [
       {
         "Name": "tokenData",
-        "Type": "XeniaTokenApi.Repositories.Token.TokenRecallDto",
+        "Type": "XeniaTokenBackend.Repositories.Token.TokenRecallDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "GetTokenHistoryReport",
     "RelativePath": "api/Token/report/tokenDetail/{companyId}",
     "HttpMethod": "GET",
@@ -293,7 +293,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "ResetToken",
     "RelativePath": "api/Token/resetToken/{companyId}/{depId}",
     "HttpMethod": "PUT",
@@ -314,7 +314,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "GetTokenTimeline",
     "RelativePath": "api/Token/timeline/{companyId}/{depId}/{depPrefix}/{tokenValue}",
     "HttpMethod": "GET",
@@ -345,7 +345,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "UpdateTokenStatus",
     "RelativePath": "api/Token/tokenStatusUpdate/{companyId}/{depId}/{depPrefix}/{tokenValue}",
     "HttpMethod": "POST",
@@ -374,14 +374,14 @@
       },
       {
         "Name": "request",
-        "Type": "XeniaTokenApi.Repositories.Token.UpdateTokenStatusRequest",
+        "Type": "XeniaTokenBackend.Repositories.Token.UpdateTokenStatusRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "GetTokenValues",
     "RelativePath": "api/Token/tokenValue/{companyId}/{depId}",
     "HttpMethod": "GET",
@@ -402,7 +402,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "GetNextCustomTokenForCounter",
     "RelativePath": "api/Token/updateCustomTokenStatus",
     "HttpMethod": "POST",
@@ -411,14 +411,14 @@
     "Parameters": [
       {
         "Name": "tokenData",
-        "Type": "XeniaTokenApi.Repositories.Token.TokenRequestDto",
+        "Type": "XeniaTokenBackend.Repositories.Token.TokenRequestDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "UpdateDepartment",
     "RelativePath": "api/Token/updateDepartment/{companyId}/{depId}/{depPrefix}/{tokenValue}",
     "HttpMethod": "PUT",
@@ -447,14 +447,14 @@
       },
       {
         "Name": "tokenData",
-        "Type": "XeniaTokenApi.Repositories.Token.TokenUpdateDto",
+        "Type": "XeniaTokenBackend.Repositories.Token.TokenUpdateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaTokenApi.Controllers.TokenController",
+    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "UpdateToken",
     "RelativePath": "api/Token/updateTokenStatus",
     "HttpMethod": "POST",
@@ -463,7 +463,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "XeniaTokenApi.Repositories.Token.TokenUpdateRequest",
+        "Type": "XeniaTokenBackend.Repositories.Token.TokenUpdateRequest",
         "IsRequired": true
       }
     ],

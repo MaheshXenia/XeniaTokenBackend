@@ -1,21 +1,19 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using XeniaCatalogueApi.Service.Common;
-using XeniaTokenApi.Repositories.Auth;
+using XeniaTokenBackend.Repositories.Auth;
 
-namespace XeniaTokenApi.Controllers
+namespace XeniaTokenBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _authRepository;
-        private readonly JwtHelperService _jwtHelperService;
 
-        public AuthController(IAuthRepository authRepository, JwtHelperService jwtHelperService)
+        public AuthController(IAuthRepository authRepository)
         {
             _authRepository = authRepository;
-            _jwtHelperService = jwtHelperService;
         }
 
 

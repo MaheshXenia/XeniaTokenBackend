@@ -1,9 +1,9 @@
 ﻿
 
-using XeniaTokenApi.Models;
-using XeniaTokenApi.Repositories.Department;
+using XeniaTokenBackend.Models;
+using XeniaTokenBackend.Repositories.Department;
 
-namespace XeniaTokenApi.Repositories.Department
+namespace XeniaTokenBackend.Repositories.Department
 {
     public interface IDepartmentRepository
     {

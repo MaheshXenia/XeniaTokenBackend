@@ -1,6 +1,6 @@
-﻿using XeniaTokenApi.Models;
+﻿using XeniaTokenBackend.Models;
 
-namespace XeniaTokenApi.Repositories.Department
+namespace XeniaTokenBackend.Repositories.Department
 {
     public class DepartmentDto
     {

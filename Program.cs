@@ -6,12 +6,12 @@ using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 using System.Text;
 using XeniaCatalogueApi.Service.Common;
-using XeniaTokenApi.Models;
-using XeniaTokenApi.Repositories.Auth;
-using XeniaTokenApi.Repositories.Counter;
-using XeniaTokenApi.Repositories.Department;
-using XeniaTokenApi.Repositories.Service;
-using XeniaTokenApi.Repositories.Token;
+using XeniaTokenBackend.Models;
+using XeniaTokenBackend.Repositories.Auth;
+using XeniaTokenBackend.Repositories.Counter;
+using XeniaTokenBackend.Repositories.Department;
+using XeniaTokenBackend.Repositories.Service;
+using XeniaTokenBackend.Repositories.Token;
 
 var builder = WebApplication.CreateBuilder(args);
 
