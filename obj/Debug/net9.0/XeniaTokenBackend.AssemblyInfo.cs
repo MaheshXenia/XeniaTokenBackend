@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XeniaTokenBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9da3c7b9139c79bb65ff1d000e390fdb53ec6b67")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39206841d0cb7fec97267b19191c54d65f3387d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("XeniaTokenBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XeniaTokenBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

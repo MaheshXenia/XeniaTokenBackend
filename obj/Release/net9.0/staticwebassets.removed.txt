@@ -1,0 +1,2 @@
+C:\Users\Xenia\Documents\XeniaTokenApi\wwwroot\index.html
+C:\Users\Xenia\Documents\XeniaTokenApi\wwwroot\style.css

@@ -247,29 +247,34 @@ namespace XeniaTokenBackend.Repositories.Token
                 .FirstOrDefaultAsync();
 
             var latestCounterCallToken = await (
-                from c in _context.xtm_Counter
-                join tr in _context.xtm_TokenRegister
-                    on c.CounterID equals tr.CounterID
-                where tr.CompanyID == companyId
-                      && tr.DepID == depId
-                      && tr.TokenActive
-                      && tr.TokenStatus == "onCall"
-                      && tr.TokenValue == _context.xtm_TokenRegister
-                                            .Where(inner => inner.CounterID == c.CounterID
-                                                         && inner.CompanyID == companyId
-                                                         && inner.DepID == depId
-                                                         && inner.TokenActive
-                                                         && inner.TokenStatus == "onCall")
-                                            .Max(inner => (int?)inner.TokenValue)
-                select new CounterCallTokenDto
-                {
-                    CounterID = c.CounterID,
-                    TokenID = tr.TokenID,
-                    DepID = tr.DepID,
-                    DepPrefix = tr.DepPrefix,
-                    ServiceID = tr.ServiceID,
-                    LastOnCallToken = tr.TokenValue
-                }).ToListAsync();
+                     from c in _context.xtm_Counter
+                     join tr in _context.xtm_TokenRegister
+                         on c.CounterID equals tr.CounterID
+                     join d in _context.xtm_Department     
+                         on tr.DepID equals d.DepID
+                     where tr.CompanyID == companyId
+                           && tr.DepID == depId
+                           && tr.TokenActive
+                           && tr.TokenStatus == "onCall"
+                           && tr.TokenValue == _context.xtm_TokenRegister
+                                                 .Where(inner => inner.CounterID == c.CounterID
+                                                              && inner.CompanyID == companyId
+                                                              && inner.DepID == depId
+                                                              && inner.TokenActive
+                                                              && inner.TokenStatus == "onCall")
+                                                 .Max(inner => (int?)inner.TokenValue)
+                     select new CounterCallTokenDto
+                     {
+                         CounterID = c.CounterID,
+                         TokenID = tr.TokenID,
+                         DepID = tr.DepID,
+                         DepPrefix = tr.DepPrefix,
+                         DepName = d.DepName,              
+                         ServiceID = tr.ServiceID,
+                         LastOnCallToken = tr.TokenValue
+                     }
+                 ).ToListAsync();
+
 
             return new TokenValuesDto
             {
