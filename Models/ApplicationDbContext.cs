@@ -9,6 +9,8 @@ namespace XeniaTokenBackend.Models
             : base(options)
         {
         }
+        public DbSet<xtm_AppSettings> xtm_AppSettings { get; set; }
+        public DbSet<xtm_Advertisement> xtm_Advertisement { get; set; }
         public DbSet<xtm_Counter> xtm_Counter { get; set; }
         public DbSet<xtm_Company> xtm_Company { get; set; }
         public DbSet<xtm_CompanySettings> xtm_CompanySettings { get; set; }

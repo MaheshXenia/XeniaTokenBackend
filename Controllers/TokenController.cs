@@ -148,7 +148,7 @@ namespace XeniaTokenBackend.Controllers
             }
         }
 
-        [HttpGet("report/tokenDetail/{companyId}")]
+      /*  [HttpGet("report/tokenDetail/{companyId}")]
         public async Task<IActionResult> GetTokenHistoryReport(int companyId,[FromQuery] DateTime startDate,[FromQuery] DateTime endDate,[FromQuery] int pageNumber = 1,[FromQuery] int pageSize = 10,[FromQuery] string searchParam = "")
         {
             if (startDate == default || endDate == default)
@@ -157,7 +157,7 @@ namespace XeniaTokenBackend.Controllers
             var result = await _tokenRepository.GetTokenHistoryReportAsync(companyId, startDate, endDate, pageNumber, pageSize, searchParam);
 
             return Ok(new { status = "success", tokenDetails = result });
-        }
+        }*/
 
         [HttpGet("timeline/{companyId}/{depId}/{depPrefix}/{tokenValue}")]
         public async Task<IActionResult> GetTokenTimeline(int companyId, int depId, string depPrefix, int tokenValue)

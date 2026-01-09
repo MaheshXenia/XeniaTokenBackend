@@ -15,7 +15,7 @@ namespace XeniaTokenBackend.Repositories.Token
         Task<(bool Success, string Message)> UpdateTokenStatusAsync(int companyId, int depId, string depPrefix, int tokenValue,int userId, int serviceId, int? customerId, int? counterId);
         Task<int> GetPendingTokenAsync(int companyId, int userId);
         Task<IEnumerable<xtm_TokenRegister>> CheckTokenValueAsync(int companyId, int depId, int tokenValue);
-        Task<PagedResponse<TokenHistoryReportDto>> GetTokenHistoryReportAsync(int companyId,DateTime startDate,DateTime endDate,int pageNumber,int pageSize,string searchParam);
+      //  Task<PagedResponse<TokenHistoryReportDto>> GetTokenHistoryReportAsync(int companyId,DateTime startDate,DateTime endDate,int pageNumber,int pageSize,string searchParam);
         Task<IEnumerable<TokenTimelineDto>> GetTokenTimelineAsync(int companyId, int depId, string depPrefix, int tokenValue);
         Task<bool> ResetTokenAsync(int companyId, int depId);
         Task<bool> UpdateIsAnnouncedAsync(int companyId, int depId, int tokenValue);

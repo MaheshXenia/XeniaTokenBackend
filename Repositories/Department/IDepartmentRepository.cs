@@ -1,15 +1,22 @@
 ﻿
 
+using XeniaTokenBackend.Dto;
 using XeniaTokenBackend.Models;
-using XeniaTokenBackend.Repositories.Department;
 
 namespace XeniaTokenBackend.Repositories.Department
 {
     public interface IDepartmentRepository
     {
         Task<List<DepartmentDto>> GetDepartmentWebByIdAsync(int userId);
-
         Task<List<xtm_Department>> GetDepartmentWebAll(int companyId);
+        Task<object> CreateDepartmentAsync(CreateDepartmentRequestDto dto);
+        Task<object> UpdateDepartmentAsync(int depId, UpdateDepartmentRequestDto dto);
+        Task<List<xtm_Department>> GetAllDepartmentsAsync(string? depNameSearch = null);
+        Task<object> GetAllDepartmentsByCompanyAsync(int companyId);
+        Task<object> GetAllDepartmentsAppByUserIdAsync(int userId);
+        Task<int> DeleteDepartmentAsync(int depId);
+
+
 
     }
 }

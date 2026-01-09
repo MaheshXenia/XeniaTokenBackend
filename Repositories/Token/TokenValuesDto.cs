@@ -11,6 +11,7 @@
     public class CounterCallTokenDto
     {
         public int CounterID { get; set; }
+        public string? CounterName { get; set; }
         public int TokenID { get; set; }
         public int DepID { get; set; }
         public string? DepPrefix { get; set; }

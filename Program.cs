@@ -7,11 +7,15 @@ using System.Security.Claims;
 using System.Text;
 using XeniaCatalogueApi.Service.Common;
 using XeniaTokenBackend.Models;
+using XeniaTokenBackend.Repositories.Advertisement;
 using XeniaTokenBackend.Repositories.Auth;
+using XeniaTokenBackend.Repositories.Company;
 using XeniaTokenBackend.Repositories.Counter;
+using XeniaTokenBackend.Repositories.Dashboard;
 using XeniaTokenBackend.Repositories.Department;
 using XeniaTokenBackend.Repositories.Service;
 using XeniaTokenBackend.Repositories.Token;
+using XeniaTokenBackend.Service.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +35,11 @@ builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<ICounterRepository, CounterRepository>();
+builder.Services.AddScoped<IAdvertisementRepository, AdvertisementRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
 builder.Services.AddScoped<JwtHelperService>();
+builder.Services.AddScoped<CommonService>();
 
 builder.Services.AddHttpContextAccessor();
 

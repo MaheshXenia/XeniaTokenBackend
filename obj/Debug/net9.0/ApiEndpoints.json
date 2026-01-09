@@ -253,47 +253,6 @@
   },
   {
     "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
-    "Method": "GetTokenHistoryReport",
-    "RelativePath": "api/Token/report/tokenDetail/{companyId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "companyId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "startDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "endDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "searchParam",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaTokenBackend.Controllers.TokenController",
     "Method": "ResetToken",
     "RelativePath": "api/Token/resetToken/{companyId}/{depId}",
     "HttpMethod": "PUT",

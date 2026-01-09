@@ -1,6 +1,6 @@
 ﻿using XeniaTokenBackend.Models;
 
-namespace XeniaTokenBackend.Repositories.Department
+namespace XeniaTokenBackend.Dto
 {
     public class DepartmentDto
     {
